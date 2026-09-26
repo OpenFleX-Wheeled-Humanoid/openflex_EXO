@@ -1,0 +1,81 @@
+# OpenFlex EXO dual-arm retargeting configuration.
+# Based on the validated OpenArmX EXO mapping, kept inside openflex_teleop_exo
+# so this package can run without depending on openarmx_teleop_exo package share.
+
+robot_info:
+  name: "OpenFlex"
+  description: "OpenFlex bimanual whole-body robot"
+  manufacturer: "Chengdu Changshu Robot Co., Ltd"
+  version: "openflex"
+
+topics:
+  exo_joint_topic: '/exo/joint_command'
+  target_left_arm_topic: '/left_arm/joint_command'
+  target_right_arm_topic: '/right_arm/joint_command'
+  status_topic: '/exo_retargeting/status'
+
+exo_joint_mapping:
+  left_arm:
+    joint_names:
+      - 'left_arm_joint_1'
+      - 'left_arm_joint_2'
+      - 'left_arm_joint_3'
+      - 'left_arm_joint_4'
+      - 'left_arm_joint_5'
+      - 'left_arm_joint_6'
+      - 'left_arm_joint_7'
+    indices: [0, 1, 2, 3, 4, 6, 5]
+
+  right_arm:
+    joint_names:
+      - 'right_arm_joint_1'
+      - 'right_arm_joint_2'
+      - 'right_arm_joint_3'
+      - 'right_arm_joint_4'
+      - 'right_arm_joint_5'
+      - 'right_arm_joint_6'
+      - 'right_arm_joint_7'
+    indices: [7, 8, 9, 10, 11, 13, 12]
+
+  triggers:
+    joint_names: ['left_trigger_joint', 'right_trigger_joint']
+    indices: [14, 15]
+
+target_joint_mapping:
+  left_arm:
+    joint_names:
+      - 'openarmx_left_joint1'
+      - 'openarmx_left_joint2'
+      - 'openarmx_left_joint3'
+      - 'openarmx_left_joint4'
+      - 'openarmx_left_joint5'
+      - 'openarmx_left_joint6'
+      - 'openarmx_left_joint7'
+
+  right_arm:
+    joint_names:
+      - 'openarmx_right_joint1'
+      - 'openarmx_right_joint2'
+      - 'openarmx_right_joint3'
+      - 'openarmx_right_joint4'
+      - 'openarmx_right_joint5'
+      - 'openarmx_right_joint6'
+      - 'openarmx_right_joint7'
+
+retargeting_params:
+  scaling_factors:
+    left_arm:  [1.0, 1.0, -1.0, 1.0, 1.0, -1.0, 1.0]
+    right_arm: [1.0, 1.0, -1.0, 1.0, 1.0, -1.0, -1.0]
+
+  offset_angles:
+    left_arm:  [-1.5707, -1.5707, 0.0, 1.5707, 0.0, 0.0, 0.0]
+    right_arm: [1.5707, 1.5707, 0.0, 1.5707, 0.0, 0.0, 0.0]
+
+  joint_limits:
+    left_arm:
+      lower: [-3.490919, -3.316125, -1.570796, 0.0, -1.570796, -0.785398, -1.570796]
+      upper: [1.302003, 0.174533, 1.570796, 2.443461, 1.570796, 0.785398, 1.570796]
+
+    right_arm:
+      lower: [-1.396263, -0.174533, -1.570796, 0.0, -1.570796, -0.785398, -1.570796]
+      upper: [3.490659, 3.316125, 1.570796, 2.443461, 1.570796, 0.785398, 1.570796]

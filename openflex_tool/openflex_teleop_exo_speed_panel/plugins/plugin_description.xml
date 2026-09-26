@@ -1,0 +1,8 @@
+<library path="openflex_teleop_exo_speed_panel">
+  <class
+    name="openflex_teleop_exo_speed_panel/SpeedScalePanel"
+    type="openflex_teleop_exo_speed_panel::SpeedScalePanel"
+    base_class_type="rviz_common::Panel">
+    <description>OpenFlex EXO speed scale slider panel.</description>
+  </class>
+</library>

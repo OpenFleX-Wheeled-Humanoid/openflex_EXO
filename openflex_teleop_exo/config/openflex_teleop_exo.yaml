@@ -1,0 +1,56 @@
+openflex_exo_teleop_node:
+  ros__parameters:
+    exo_gamepad_topic: /exo/gamepad_keys
+    cmd_vel_topic: /cmd_vel
+    lift_jog_topic: /lift_manual_position_controller/jog_command
+    head_command_topic: /head_forward_position_controller/commands
+    joint_states_topic: /joint_states
+    speed_scale_topic: /openflex_teleop_exo/speed_scale
+
+    publish_rate: 50.0
+    input_timeout_sec: 0.5
+    joystick_deadzone: 0.15
+    linear_expo: 1.0
+    angular_expo: 1.0
+    enable_scurve: true
+    acceleration_time: 0.5
+    smoothness: 0.3
+
+    base_max_linear_speed: 1.0
+    base_max_angular_speed: 2.0
+    base_lift_speed: 0.5
+    base_head_rate_deg_s: 90.0
+    default_speed_scale: 0.1
+    min_speed_scale: 0.0
+    max_speed_scale: 1.0
+
+    # EXO axes: left/up are positive for horizontal/vertical axes.
+    axis_left_x: 0
+    axis_left_y: 1
+    axis_right_x: 2
+    chassis_vx_sign: 1.0
+    chassis_vy_sign: 1.0
+    chassis_wz_sign: 1.0
+
+    buttons_active_low: true
+    button_left_red: 5
+    button_left_blue: 6
+    button_right_red: 11
+    button_right_blue: 12
+    button_right_white: 13
+    button_right_black: 14
+
+    lift_down_sign: -1.0
+    lift_up_sign: 1.0
+
+    yaw_joint_name: openarmx_head_yaw_joint
+    pitch_joint_name: openarmx_head_pitch_joint
+    head_yaw_left_sign: 1.0
+    head_yaw_right_sign: -1.0
+    head_pitch_up_sign: 1.0
+    head_pitch_down_sign: -1.0
+    invert_head_yaw: false
+    invert_head_pitch: false
+    head_limit_rad: 1.5708
+    head_soft_margin_deg: 10.0
+    publish_head_hold_on_start: false

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>openflex_teleop_exo_speed_panel</name>
+  <version>0.1.0</version>
+  <description>RViz2 speed scale panel for openflex teleop exo.</description>
+  <maintainer email="openarmrobot@gmail.com">Chengdu Changshu Robot Co., Ltd</maintainer>
+  <license>OpenArmX Research and Education License</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>rclcpp</depend>
+  <depend>std_msgs</depend>
+  <depend>rviz_common</depend>
+  <depend>pluginlib</depend>
+  <depend>qtbase5-dev</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+    <rviz plugin="${prefix}/plugins/plugin_description.xml"/>
+  </export>
+</package>
